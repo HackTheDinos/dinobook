@@ -3,8 +3,14 @@
 </head>
 
 <body>
+
 	<h1>DINOS!</h1>
 	{{>loginButtons}}
+
+	<h1>Welcome to Our App!!!</h1>
+	<h1>DINOS!</h1>
+	{{>loginButtons}}
+	{{>menu}}
 </body>
 
 <template name = "home">
@@ -27,5 +33,25 @@
 </template>
 
 <template name = "search">
+</template>
+
+
+<template name = "menu">
+	<div id = "MENU">
+		<ul>
+			<li>
+				<div id='TODO'> To-Do List </div>
+			</li> 	
+			<li>
+				<div id='InputForm'> Input Form </div>
+			</li>
+			<li>
+				<div id='FossilList'> Fossil List </div>
+			</li>
+			<li>
+				<div id='Map'> Map </div>
+			</li> 	
+		</ul>
+	</div>
 </template>
 
