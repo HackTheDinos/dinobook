@@ -9,6 +9,8 @@
 	{{>menu}}
 	{{>todo}}
 	{{>map}}
+	{{>yield}}
+
 </template>
 
 <template name = "home">
@@ -25,18 +27,14 @@
 <template name = "menu">
 	<div id = "menuDiv">
 		<ul>
-			<li>
-				<div id='todo'> To-Do List </div>
-			</li> 	
-			<li>
-				<div id='inputForm'> Input Form </div>
-			</li>
-			<li>
-				<div id='fossilList'> Fossil List </div>
-			</li>
-			<li>
-				<div id='map'> Map </div>
-			</li> 	
+
+			<li><a href="{{pathFor route='home'}}">Home</a></li> 
+			<li><a href="{{pathFor route='map'}}">Map</a></li> 	
+	
+			<li><a href="{{pathFor route='fossilForm'}}">Input Fossil</a></li>
+			<li><a href="{{pathFor route='fossilList'}}">Fossil List</a> </li>
+			
+
 		</ul>
 	</div>
 </template>
