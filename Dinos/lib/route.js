@@ -1,5 +1,4 @@
 
-
 Router.route('/', {
     // options for the route
     template: 'home',
