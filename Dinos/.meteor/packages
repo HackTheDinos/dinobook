@@ -24,4 +24,5 @@ iron:router
 cfs:standard-packages
 easy:search
 cfs:gridfs
+dburles:google-maps
 sacha:spin
