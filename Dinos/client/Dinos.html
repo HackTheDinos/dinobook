@@ -2,13 +2,13 @@
 	<title>DinoBook</title>
 </head>
 
-<body>
+<template name = "applicationLayout">
 	<h1>Welcome to Our App!!!</h1>
-	<h1>DINOS!</h1>
+
 	{{>loginButtons}}
 	{{>menu}}
 	{{>map}}
-</body>
+</template>
 
 <template name = "home">
 	<h1>HEY</h1>
@@ -33,6 +33,10 @@
 </template>
 
 <template name = "search">
+</template>
+
+<template name = "loader">
+	{{> spinner}}
 </template>
 
 <template name = "menu">

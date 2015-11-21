@@ -1,4 +1,11 @@
 
+Router.configure({
+  layoutTemplate: 'applicationLayout',
+  loadingTemplate: 'loader',
+
+});
+
+
 Router.route('/', {
     // options for the route
     template: 'home',
