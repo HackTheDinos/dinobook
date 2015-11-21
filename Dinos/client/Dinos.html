@@ -3,14 +3,11 @@
 </head>
 
 <body>
-
-	<h1>DINOS!</h1>
-	{{>loginButtons}}
-
 	<h1>Welcome to Our App!!!</h1>
 	<h1>DINOS!</h1>
 	{{>loginButtons}}
 	{{>menu}}
+	{{>map}}
 </body>
 
 <template name = "home">
@@ -30,26 +27,28 @@
 </template>
 
 <template name = "map">
+	<div class = 'map-container'> 
+		    {{> googleMap name="exampleMap" options=exampleMapOptions}}
+	</div>
 </template>
 
 <template name = "search">
 </template>
 
-
 <template name = "menu">
-	<div id = "MENU">
+	<div id = "menuDiv">
 		<ul>
 			<li>
-				<div id='TODO'> To-Do List </div>
+				<div id='todo'> To-Do List </div>
 			</li> 	
 			<li>
-				<div id='InputForm'> Input Form </div>
+				<div id='inputForm'> Input Form </div>
 			</li>
 			<li>
-				<div id='FossilList'> Fossil List </div>
+				<div id='fossilList'> Fossil List </div>
 			</li>
 			<li>
-				<div id='Map'> Map </div>
+				<div id='map'> Map </div>
 			</li> 	
 		</ul>
 	</div>
