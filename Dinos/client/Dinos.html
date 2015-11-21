@@ -7,7 +7,8 @@
 
 	{{>loginButtons}}
 	{{>menu}}
-	{{>map}}
+	{{>yield}}
+
 </template>
 
 <template name = "home">
@@ -25,10 +26,12 @@
 	<div id = "menuDiv">
 		<ul>
 
-			<li>To-Do List </li> 	
-			<li>Input Fossil</li>
-			<li> Fossil List </li>
-			<li>Map</li> 	
+			<li><a href="{{pathFor route='home'}}">Home</a></li> 
+			<li><a href="{{pathFor route='map'}}">Map</a></li> 	
+	
+			<li><a href="{{pathFor route='fossilForm'}}">Input Fossil</a></li>
+			<li><a href="{{pathFor route='fossilList'}}">Fossil List</a> </li>
+			
 
 		</ul>
 	</div>
