@@ -7,12 +7,25 @@ var Schema = {};
 
 Schema.Fossil = new SimpleSchema({
 	specNum: {
-		type: String,
+		type: Number,
 		label: "Specimen Number",
 	},
 	locality: {
 		type: String,
 		label: "Locality"
+	},
+	coordinates: {
+		type: Object,
+		label: "Coordinates",
+		optional: true
+	},
+	"coordinates.x": {
+		type: Number,
+		decimal: true
+	},
+	"coordinates.y": {
+		type: Number,
+		decimal: true
 	},
 	components: {
 		type: Array,

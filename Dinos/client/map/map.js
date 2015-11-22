@@ -11,10 +11,17 @@ Template.map.onRendered(function() {
 Template.map.helpers({
   exampleMapOptions: function() {
     // Make sure the maps API has loaded
+    
+    var themFossilz = Fossils.find().fetch();    
+    var lastFossil = (themFossilz.length)-1;
+    var centerCoordinatex = themFossilz[lastFossil].coordinates.x; 
+    var centerCoordinatey = themFossilz[lastFossil].coordinates.y;
+
     if (GoogleMaps.loaded()) {
       // Map initialization options
       return {
-        center: new google.maps.LatLng(-37.8136, 144.9631),
+    //    center: new google.maps.LatLng(-37.8136, 144.9631),        
+        center: new google.maps.LatLng(centerCoordinatex, centerCoordinatey),
         zoom: 8
       };
     }
@@ -29,5 +36,17 @@ Template.map.onCreated(function() {
       position: map.options.center,
       map: map.instance
     });
+
+    var themFossilz = Fossils.find().fetch();
+
+    for (i=0; i<themFossilz.length; i++) {
+      var fossilLat = {lat: themFossilz[i].coordinates.x, lng: themFossilz[i].coordinates.y};
+      var fossilMarker = new google.maps.Marker({
+        position: fossilLat,
+        title: themFossilz[i].specNum.toString(),
+        map: map.instance
+      })
+    }
+
   });
 });
