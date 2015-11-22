@@ -9,7 +9,7 @@
 
  Template.imageView.helpers({
  	images: function () {
-
+ 	console.log(Images.find({_id:this.fileId}));
     return Images.find({_id:this.fileId}); // Where Images is an FS.Collection instance
 }
 });

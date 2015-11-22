@@ -10,3 +10,10 @@ Template.todoList.helpers({
     return Tasks.find({});
   }
 })
+
+Template.todoList.events({
+	'click .deleteTodo':function(){
+		console.log('remove');
+		Tasks.remove(this._id);
+	}
+})
