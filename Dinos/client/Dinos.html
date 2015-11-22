@@ -5,13 +5,12 @@
 <template name = "applicationLayout">
 	<div class ="row">
 
-	<div class ="col-md-3" id ="dash">
+	<div class ="col-md-3 col-sm-3 col-xs-12 pull-left" id ="dash">
 		{{>loginButtons}}
 		{{>menu}}
 	
 	</div>
-
-	<div class = "col-md-9" id = "main">{{>yield}}</div>
+	<div class = "col-md-9 col-sm-9 col-xs-12 pull-right" id = "main">{{>yield}}</div>
 	</div>
 </template>
 
