@@ -15,10 +15,10 @@ Router.route('/', {
     layout:'applicationLayout',
     template:'home',
     waitOn:function(){
-    	return [Meteor.subscribe('tasks'),Meteor.subscribe('fossils')];
+    	return [Meteor.subscribe('tasks'),Meteor.subscribe('fossils'),Meteor.subscribe('images')];
     },
     data: function(){
-    	return [Tasks.find({}),Fossils.find({})];
+    	return [Tasks.find({}),Fossils.find({}),Images.find({})];
     },
 });
 
@@ -28,14 +28,11 @@ Router.route('/map',{
 	path: '/map',
 	layout:'applicationLayout',
 	waitOn:function(){
-		return [ Meteor.subscribe('tasks'), Meteor.subscribe('fossils')];
-
-
-	},
-
-	data: function(){
-		return [Tasks.find({}),Fossils.find({})];
-	},
+    	return [Meteor.subscribe('tasks'),Meteor.subscribe('fossils'),Meteor.subscribe('images')];
+    },
+    data: function(){
+    	return [Tasks.find({}),Fossils.find({}),Images.find({})];
+    },
 	template:'map'
 })
 
@@ -45,14 +42,11 @@ Router.route('/fossilList',{
 	path: '/fossilList',
 	layout:'applicationLayout',
 	waitOn:function(){
-		return [ Meteor.subscribe('tasks'), Meteor.subscribe('fossils')];
-
-
-	},
-
-	data: function(){
-		return [Tasks.find({}),Fossils.find({})];
-	},
+    	return [Meteor.subscribe('tasks'),Meteor.subscribe('fossils'),Meteor.subscribe('images')];
+    },
+    data: function(){
+    	return [Tasks.find({}),Fossils.find({}),Images.find({})];
+    },
 	template:'fossilList'
 })
 
@@ -62,12 +56,11 @@ Router.route('/fossilForm',{
 	path: '/fossilForm',
 	layout:'applicationLayout',
 	waitOn:function(){
-		return [ Meteor.subscribe('tasks'), Meteor.subscribe('fossils')];
-	},
-
-	data: function(){
-		return [Tasks.find({}),Fossils.find({})];
-	},
+    	return [Meteor.subscribe('tasks'),Meteor.subscribe('fossils'),Meteor.subscribe('images')];
+    },
+    data: function(){
+    	return [Tasks.find({}),Fossils.find({}),Images.find({})];
+    },
 	template:'fossilForm'
 })
 
@@ -77,13 +70,10 @@ Router.route('/todoList',{
 	path: '/todoList',
 	layout:'applicationLayout',
 	waitOn:function(){
-		return [ Meteor.subscribe('tasks'), Meteor.subscribe('fossils')];
-
-
-	},
-
-	data: function(){
-		return [Tasks.find({}),Fossils.find({})];
-	},
+    	return [Meteor.subscribe('tasks'),Meteor.subscribe('fossils'),Meteor.subscribe('images')];
+    },
+    data: function(){
+    	return [Tasks.find({}),Fossils.find({}),Images.find({})];
+    },
 	template:'todoList'
 })

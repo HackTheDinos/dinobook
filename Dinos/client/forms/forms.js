@@ -4,10 +4,10 @@ Template.todoForm.events({
 		e.preventDefault();
 		var task = $('#task').val();
 
-			Tasks.insert({
+		Tasks.insert({
 			task: task
 		})
-			$('#task').val('');
+		$('#task').val('');
 
 	}
 })
