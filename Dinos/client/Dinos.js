@@ -37,7 +37,7 @@ var mouseX = 0, mouseY = 0;
 
  	var loader2 = new THREE.ObjectLoader();
  	loader2.load("sarahs-dino.json",function ( obj ) {
- 		obj.rotation.y +=70;
+ 		obj.rotation.y += 64.5;
  		document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
  		console.log(obj);
@@ -49,7 +49,7 @@ var mouseX = 0, mouseY = 0;
  			var spdy =  (windowHalfY  - mouseY) / 100;
  			var spdx =  (windowHalfY  - mouseX) / 100;
 
- 			obj.rotation.x += (spdy/10);
+ 			obj.rotation.z += (spdy/10);
  		}
 
  	});
