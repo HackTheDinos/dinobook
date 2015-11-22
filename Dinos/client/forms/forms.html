@@ -1,12 +1,26 @@
 <template name = "todoForm">
 	<h1>to do form</h1>
 	<form id = "submitTask">
-	<label>input task</label><input id = "task" type = "text">
-	<button type = "submit">Submit</button>
-</form>
+		<label>input task</label><input id = "task" type = "text">
+		<button type = "submit">Submit</button>
+	</form>
 </template>
 
 <template name = "fossilForm">
 	<h1>FOSSIL FORM GOES HERE</h1>
-	{{> quickForm collection="Fossils" id="insertFossilForm" type="insert"}}
+	{{#autoForm id="fossilForm" type="insert" collection="Fossils" validation = "submit"}}
+	{{> afQuickField name="specNum"}}
+	{{> afQuickField name="locality"}}
+	{{> afQuickField name="components"}}
+	{{> afQuickField name="date"}}
+	{{> afQuickField name="collector"}}
+	{{> afQuickField name="media"}}
+
+	
+
+	{{> afQuickField name="fileId" type="cfs-file" collection="images"}}
+	
+	<button type="submit">Submit</button>
+	{{/autoForm}}
+	
 </template>
