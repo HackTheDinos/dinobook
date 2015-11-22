@@ -1,8 +1,4 @@
 <template name = "fossilList">
-	<h1>FOSSIL LIST GOES HERE</h1>
-
-	
-
 	{{#each posts}}
 	<dl>
 		<dt>Specimen Number</dt>
@@ -21,14 +17,17 @@
 	{{/each}}
 
 
-			
+
 </template>
 
 <template name = "todoList">
 
 	{{>todoForm}}
-
+	<button id="delete">Delete</button>
 	{{#each taskList}}
-	<p>{{task}}</p>
+	<div class="row">
+		<div class="col-md-6"><p>{{task}}</p></div>
+		<div class="col-md-6"><input type ="checkbox" id ="delete"></div>
+	</div>
 	{{/each}}
 </template>
