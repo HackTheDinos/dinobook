@@ -22,4 +22,8 @@ TODO:
 
 2. add images to map
 
-3.fossil list sort by fields
+3. fossil list sort by fields
+
+4.styles
+
+5.mobile/tablet
