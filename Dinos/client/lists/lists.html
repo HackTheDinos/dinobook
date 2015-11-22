@@ -1,7 +1,31 @@
 <template name = "fossilList">
 	<h1>FOSSIL LIST GOES HERE</h1>
+
+	{{#if postList.count}}
+
+	{{#each postList}}
+	<dl class="dl-horizontal">
+		<dt>Specimen Number</dt>
+		<dd>{{specNum}}</dd>
+		<dt>Locality</dt>
+		<dd>{{locality}}</dd>
+		<dt>Date</dt>
+		<dd>{{date}}</dd>
+		<dt>components</dt>
+		<dd>{{components}}</dd>
+		<dt>collector</dt>
+		<dd>{{collector}}</dd>
+	</dl>
+	{{/each}}
+	{{/if}}
 </template>
+
 <template name = "todoList">
 	<h1>todolist</h1>
+
 	{{>todoForm}}
+
+	{{#each taskList}}
+	<p>{{task}}</p>
+	{{/each}}
 </template>
