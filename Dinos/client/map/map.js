@@ -111,10 +111,23 @@ Template.map.events = {
           //"Components: " + getComponents(fossil.components)
           )
       })
+      var counter = 0;
 
       marker.addListener('click', function() {
-        infowindow.open(marker.get('map'), marker);
-    //  var currentZoom = map.zoom;
+        if (counter %2 == 0){
+          infowindow.open(marker.get('map'), marker);
+          counter += 1;
+          console.log(counter);
+        }
+        else if (counter %2 == 1) 
+        {
+          infowindow.close();
+          counter += 1;
+          console.log('odd ' + counter);
+        }
+        else {
+          console.log('wut ' + counter)
+        }    //  var currentZoom = map.zoom;
     //  map.setZoom(currentZoom + 1);
     map.setCenter(marker.getPosition());
   })
