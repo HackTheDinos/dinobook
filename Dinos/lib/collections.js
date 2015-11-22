@@ -29,11 +29,15 @@ Fossils.attachSchema(new SimpleSchema({
 	},
 	"coordinates.x": {
 		type: Number,
-		decimal: true
+		decimal: true,
+		max: 180,
+		min: -180
 	},
 	"coordinates.y": {
 		type: Number,
-		decimal: true
+		decimal: true,
+		max: 85,
+		min: -85
 	},
 	components: {
 		type: Array,

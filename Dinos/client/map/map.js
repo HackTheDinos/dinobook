@@ -1,4 +1,3 @@
-
 Meteor.startup(function() {
   GoogleMaps.load();
 });
@@ -15,9 +14,13 @@ Template.map.events = {
     var coords = inputCoordinates.split(',');
     var inputCoordsX = coords[0];
     var inputCoordsY = coords[1];
+    var latlng = {lat: parseFloat(inputCoordsX), lng: parseFloat(inputCoordsY)}
 
     if (isInt(inputCoordsX) && isInt(inputCoordsY)) {
       console.log('hi');
+    }
+
+    getGeoAddress(latlng);
    /*   if (GoogleMaps.loaded()) {
       // Map initialization options
         new google.maps.Map(document.getElementById(''), {
@@ -25,13 +28,13 @@ Template.map.events = {
           center: P
         })
         zoom: 8
-      };*/
-    }
-  }
-}
+        ;*/
 
-Template.map.helpers({
-  exampleMapOptions: function() {
+      }
+    }
+
+    Template.map.helpers({
+      exampleMapOptions: function() {
     // Make sure the maps API has loaded
     var themFossilz = Fossils.find().fetch();    
     var lastFossil = (themFossilz.length)-1;
@@ -44,15 +47,18 @@ Template.map.helpers({
       centerCoordinatex == 0; 
       centerCoordinatey == 0;
     }
+
+    if (GoogleMaps.loaded()){
       // Map initialization options
       return {
         center: new google.maps.LatLng(centerCoordinatex, centerCoordinatey),
         zoom: 8
       };
     }
+  }
 });
 
-Template.map.onCreated(function() {
+    Template.map.onCreated(function() {
   // We can use the `ready` callback to interact with the map API once the map is ready.
   GoogleMaps.ready('exampleMap', function(map) {
     // Add a marker to the map once it's ready
@@ -72,7 +78,7 @@ Template.map.onCreated(function() {
       })
       addInfoBox( fossilMarker, themFossilz[i], marker.map );
     }
-  
+
     google.maps.event.addDomListener('outer', 'submit #searchCenter', function(result) {
       console.log(result);
       console.log('hey');
@@ -80,34 +86,61 @@ Template.map.onCreated(function() {
   });
 });
 
-function getComponents(fossilComponents) {
-  componentString = "";
-  for (i =0; i<fossilComponents.length; i++){
-    componentString += fossilComponents[i] + "<br />"
-  }
-  return componentString
-}
+    function getComponents(fossilComponents) {
+      componentString = "";
+      for (i =0; i<fossilComponents.length; i++){
+        componentString += fossilComponents[i] + "<br />"
+      }
+      return componentString
+    }
 
-function isInt(value) {
-  return !isNaN(value) && 
-  parseInt(Number(value)) == value && 
-  !isNaN(parseInt(value, 10));
-}
+    function isInt(value) {
+      return !isNaN(value) && 
+      parseInt(Number(value)) == value && 
+      !isNaN(parseInt(value, 10));
+    }
 
-function addInfoBox(marker, fossil, map) {
-  var infowindow = new google.maps.InfoWindow({
-    content: (
-      "Specimen Number: " + fossil.specNum + "<br />" +
-      "Collector: " + fossil.collector + "<br />" +
-      "Date Collected: " + fossil.date + "<br /"  +
-      "Components: " + getComponents(fossil.components)
-      )
-  })
+    function addInfoBox(marker, fossil, map) {
+      latlng = {lat: parseFloat(fossil.coordinates.x), lng: parseFloat(fossil.coordinates.y)}
+      var infowindow = new google.maps.InfoWindow({
+        content: (
+          "Specimen Number: " + fossil.specNum + "<br />" +
+          "Location: " + getGeoAddress(latlng) + "<br />" +
+          "Collector: " + fossil.collector + "<br />" +
+          "Date Collected: " + fossil.date + "<br /"  +
+          "Components: " + getComponents(fossil.components)
+          )
+      })
 
-  marker.addListener('click', function() {
-    infowindow.open(marker.get('map'), marker);
+      marker.addListener('click', function() {
+        infowindow.open(marker.get('map'), marker);
     //  var currentZoom = map.zoom;
     //  map.setZoom(currentZoom + 1);
     map.setCenter(marker.getPosition());
   })
-} 
+    };
+
+    function getGeoAddress(latlng) {
+      var geocoder = new google.maps.Geocoder;
+
+      resultString = geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK) {
+          if (results[1]) {
+           console.log(results[1].formatted_address);
+           resultString = (results[1].formatted_address);
+           console.log(" here: " + resultString);
+           return resultString;
+
+         } else {
+          resultString = 'No results found';
+        }
+      } else {
+        resultString = ('Geocoder failed due to: ' + status);
+      }
+      console.log('hurr' + resultString);
+    })
+
+      console.log("Made it here " + resultString);
+    //  return resultString;
+
+    }
