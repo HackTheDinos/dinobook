@@ -77,3 +77,17 @@ Router.route('/todoList',{
     },
 	template:'todoList'
 })
+
+Router.route('/searchBox',{
+    name:'searchBox',
+    path:'/searchBox',
+    waitOn:function(){
+        return [Meteor.subscribe('tasks'),Meteor.subscribe('fossils'),Meteor.subscribe('images')];
+
+    },
+    data: function(){
+        return Fossils.find({});
+    },
+    template:'searchBox'
+
+})

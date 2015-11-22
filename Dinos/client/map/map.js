@@ -1,8 +1,8 @@
-if (Meteor.isClient) {
+
   Meteor.startup(function() {
     GoogleMaps.load();
   });
-}
+
 
 Template.map.onRendered(function() {
   GoogleMaps.load();
@@ -15,6 +15,7 @@ Template.map.helpers({
     var themFossilz = Fossils.find().fetch();    
     var lastFossil = (themFossilz.length)-1;
     var centerCoordinatex = themFossilz[lastFossil].coordinates.x; 
+
     var centerCoordinatey = themFossilz[lastFossil].coordinates.y;
 
     if (GoogleMaps.loaded()) {

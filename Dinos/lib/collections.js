@@ -1,14 +1,17 @@
-Tasks = new Meteor.Collection('tasks');
-Fossils = new Meteor.Collection('fossils');
+Tasks = new Mongo.Collection('tasks');
+Fossils = new Mongo.Collection('fossils');
 
 
 Images = new FS.Collection("images",{
   stores: [new FS.Store.GridFS("images",{path: "~/uploads"})]
 });
 
-/* Fossils Schema */
+FossilsIndex = new EasySearch.Index({
+    collection: Fossils,
+    fields: ['collector'],
+    engine: new EasySearch.MongoDB()
+  });
 
-//var Schema = {};
 
 Fossils.attachSchema(new SimpleSchema({
 	specNum: {
