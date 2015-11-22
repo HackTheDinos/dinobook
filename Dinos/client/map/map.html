@@ -1,5 +1,13 @@
 <template name = "map">
+	<div class = 'map-search'>
+		<form id="searchCenter">
+			<input type="text" class="searchCenterInput" name="q" size="21" maxlength="120">
+			<input type="submit" value="Search Site" class="searchCenterButton">
+		</form>
+		<div class="searchCenterClear"></div>
+	</div>
+
 	<div class = 'map-container'> 
-		    {{> googleMap name="exampleMap" options=exampleMapOptions}}
+		{{> googleMap name="exampleMap" options=exampleMapOptions}}
 	</div>
 </template>
