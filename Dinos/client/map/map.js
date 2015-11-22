@@ -6,7 +6,7 @@ Meteor.startup(function() {
 Template.map.onRendered(function() {
   GoogleMaps.load();
 });
-
+/*
 Template.map.events = {
   'submit #searchCenter': function (evt, template) {
     evt.preventDefault();
@@ -28,10 +28,10 @@ Template.map.events = {
           center: P
         })
         zoom: 8
-        ;*/
+        ;
 
       }
-    }
+    }*/
 
     Template.map.helpers({
       exampleMapOptions: function() {
@@ -74,15 +74,10 @@ Template.map.events = {
       var fossilMarker = new google.maps.Marker({
         position: fossilLat,
         title: themFossilz[i].specNum.toString(),
-        map: map.instance,
+        map: map.instance
       })
       addInfoBox( fossilMarker, themFossilz[i], marker.map );
     }
-
-    google.maps.event.addDomListener('outer', 'submit #searchCenter', function(result) {
-      console.log(result);
-      console.log('hey');
-    });
   });
 });
 
@@ -105,42 +100,15 @@ Template.map.events = {
       var infowindow = new google.maps.InfoWindow({
         content: (
           "Specimen Number: " + fossil.specNum + "<br />" +
-          "Location: " + getGeoAddress(latlng) + "<br />" +
           "Collector: " + fossil.collector + "<br />" +
           "Date Collected: " + fossil.date + "<br /"  +
           "Components: " + getComponents(fossil.components)
           )
       })
-
+      
       marker.addListener('click', function() {
+        console.log('hey');
         infowindow.open(marker.get('map'), marker);
-    //  var currentZoom = map.zoom;
-    //  map.setZoom(currentZoom + 1);
-    map.setCenter(marker.getPosition());
-  })
+        map.setCenter(marker.getPosition());
+      })
     };
-
-    function getGeoAddress(latlng) {
-      var geocoder = new google.maps.Geocoder;
-
-      resultString = geocoder.geocode({'location': latlng}, function(results, status) {
-        if (status === google.maps.GeocoderStatus.OK) {
-          if (results[1]) {
-           console.log(results[1].formatted_address);
-           resultString = (results[1].formatted_address);
-           console.log(" here: " + resultString);
-           return resultString;
-
-         } else {
-          resultString = 'No results found';
-        }
-      } else {
-        resultString = ('Geocoder failed due to: ' + status);
-      }
-      console.log('hurr' + resultString);
-    })
-
-      console.log("Made it here " + resultString);
-    //  return resultString;
-
-    }
