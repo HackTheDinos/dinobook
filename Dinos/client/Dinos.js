@@ -37,6 +37,8 @@ var mouseX = 0, mouseY = 0;
 
  	var loader2 = new THREE.ObjectLoader();
  	loader2.load("sarahs-dino.json",function ( obj ) {
+ 		obj.rotation.y += 64.5;
+
  		document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
  		console.log(obj);
@@ -61,8 +63,8 @@ var mouseX = 0, mouseY = 0;
 
  	function render() {
  		requestAnimationFrame( render );
-		camera.position.x += ( mouseX - camera.position.x ) * .05+10;
-		camera.position.y += ( - mouseY - camera.position.y ) * .05+10;
+		camera.position.x += ( mouseX - camera.position.x ) * .05+5;
+		camera.position.y += ( - mouseY - camera.position.y ) * .05+5;
 		camera.position.z = 5;
 
 		camera.lookAt( scene.position );
