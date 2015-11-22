@@ -50,7 +50,7 @@ var mouseX = 0, mouseY = 0;
  			var spdy =  (windowHalfY  - mouseY) / 100;
  			var spdx =  (windowHalfY  - mouseX) / 100;
 
- 			obj.rotation.x += (spdy/10);
+ 			obj.rotation.x += (spdy/30);
  		}
 
  	});
