@@ -64,7 +64,8 @@ Template.map.events = {
     // Add a marker to the map once it's ready
     var marker = new google.maps.Marker({
       position: map.options.center,
-      map: map.instance
+      map: map.instance,
+      icon: 'dinosaur.jpg'
     });
 
     var themFossilz = Fossils.find().fetch();
@@ -74,7 +75,8 @@ Template.map.events = {
       var fossilMarker = new google.maps.Marker({
         position: fossilLat,
         title: themFossilz[i].specNum.toString(),
-        map: map.instance
+        map: map.instance,
+        icon: 'dinosaur.jpg'
       })
       addInfoBox( fossilMarker, themFossilz[i], marker.map );
     }
@@ -105,10 +107,47 @@ Template.map.events = {
           "Date Collected: " + fossil.date + "<br />" 
           //"Components: " + getComponents(fossil.components)
           )
-      })
-      
-      marker.addListener('click', function() {
+      })      
+    var counter = 0;
+    marker.addListener('click', function() {
+      if (counter %2 == 0){
         infowindow.open(marker.get('map'), marker);
-        map.setCenter(marker.getPosition());
-      })
-    };
+        counter += 1;
+      }
+      else if (counter %2 == 1) 
+      {
+        infowindow.close();
+        counter += 1;
+      }
+      else {
+        console.log('wut ' + counter)
+        }    //  var currentZoom = map.zoom;
+    //  map.setZoom(currentZoom + 1);
+    map.setCenter(marker.getPosition());
+  })
+};
+
+  function getGeoAddress(latlng) {
+    var geocoder = new google.maps.Geocoder;
+
+    resultString = geocoder.geocode({'location': latlng}, function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        if (results[1]) {
+         console.log(results[1].formatted_address);
+         resultString = (results[1].formatted_address);
+         console.log(" here: " + resultString);
+         return resultString;
+
+       } else {
+        resultString = 'No results found';
+      }
+    } else {
+      resultString = ('Geocoder failed due to: ' + status);
+    }
+    console.log('hurr' + resultString);
+  })
+
+    console.log("Made it here " + resultString);
+    //  return resultString;
+
+  }
