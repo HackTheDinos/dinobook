@@ -8,7 +8,7 @@
 	<div class ="col-md-3" id ="dash">
 		{{>loginButtons}}
 		{{>menu}}
-		{{>imageView}}
+	
 	</div>
 
 	<div class = "col-md-9" id = "main">{{>yield}}</div>
@@ -25,7 +25,8 @@
   </div>
 </template>
 <template name = "home">
-	<h1>HEY</h1>
+	
+	{{>three}}
 </template>
 
 <template name = "search">
@@ -66,8 +67,8 @@
 	</div>
 </template>
 
-<template name = "three">
-
+<template name="three">
+	<div id ="canvas"></div>
 </template>
 
 
