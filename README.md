@@ -1,12 +1,13 @@
 #dinobook
 
+visit:  dinobook.meteor.com
 
 Field Book - multiple solutions, meteor framework
 
 Our solution to https://github.com/amnh/HacktheDinos/wiki/Digital-Field-Book 
 
 
-visit:  dinobook.meteor.com
+
 
 
 
