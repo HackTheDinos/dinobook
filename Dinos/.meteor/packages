@@ -22,7 +22,6 @@ accounts-ui
 accounts-password
 iron:router
 cfs:standard-packages
-easy:search
 cfs:gridfs
 dburles:google-maps
 sacha:spin
@@ -30,3 +29,5 @@ aldeed:collection2
 aldeed:autoform
 cfs:autoform
 twbs:bootstrap
+matteodem:easy-search
+easy:search

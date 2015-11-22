@@ -3,12 +3,16 @@
 </head>
 
 <template name = "applicationLayout">
-	<h1>Welcome to Our App!!!</h1>
+	<div class ="row">
 
-	{{>loginButtons}}
-	{{>menu}}
-	{{>yield}}
+	<div class ="col-md-3" id ="dash">
+		{{>loginButtons}}
+		{{>menu}}
+		{{>search}}
+	</div>
 
+	<div class = "col-md-9" id = "main">{{>yield}}</div>
+	</div>
 </template>
 
 <template name = "home">
@@ -16,6 +20,8 @@
 </template>
 
 <template name = "search">
+{{> EasySearch.Input index=FossilsIndex }}
+
 </template>
 
 <template name = "loader">
@@ -32,5 +38,14 @@
 			<li><a href="{{pathFor route='todoList'}}">shopping list</a> </li>
 		</ul>
 	</div>
+</template>
+<template name = "searchBox">
+	{{> EasySearch.Input index=FossilsIndex }}
+
+	<ul>
+        {{#EasySearch.Each index=FossilsIndex }}
+            <li>Name of the player: {{collector}}</li>
+        {{/EasySearch.Each}}
+    </ul>
 </template>
 
