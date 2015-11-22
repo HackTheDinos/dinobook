@@ -66,6 +66,7 @@ Template.map.events = {
       position: map.options.center,
       map: map.instance,
       icon: 'dinosaur.jpg'
+      
     });
 
     var themFossilz = Fossils.find().fetch();
