@@ -100,14 +100,14 @@ Template.map.events = {
       var infowindow = new google.maps.InfoWindow({
         content: (
           "Specimen Number: " + fossil.specNum + "<br />" +
+          "Location: " + latlng.lat + "," + latlng.lng + "<br />" +
           "Collector: " + fossil.collector + "<br />" +
-          "Date Collected: " + fossil.date + "<br /"  +
-          "Components: " + getComponents(fossil.components)
+          "Date Collected: " + fossil.date + "<br />" 
+          //"Components: " + getComponents(fossil.components)
           )
       })
       
       marker.addListener('click', function() {
-        console.log('hey');
         infowindow.open(marker.get('map'), marker);
         map.setCenter(marker.getPosition());
       })
