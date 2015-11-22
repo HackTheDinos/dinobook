@@ -2,5 +2,8 @@
 Field Book - multiple solutions, meteor framework
 
 /* TO START */
-Command Line: 
+Command Line:
+
+cd Dinos
+
 meteor

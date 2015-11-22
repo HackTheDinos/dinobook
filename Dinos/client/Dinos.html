@@ -8,20 +8,46 @@
 	<div class ="col-md-3" id ="dash">
 		{{>loginButtons}}
 		{{>menu}}
-		{{>search}}
+	
 	</div>
 
 	<div class = "col-md-9" id = "main">{{>yield}}</div>
 	</div>
 </template>
 
+<template name="imageView">
+  <div class="imageView">
+    {{#each images}}
+      <div>
+        <a href="{{this.url}}" target="_blank"><img src="{{this.url store='images' uploading='/images/uploading.gif' storing='/images/storing.gif'}}" alt="" class="thumbnail" /></a>
+      </div>
+    {{/each}}
+  </div>
+</template>
 <template name = "home">
-	<h1>HEY</h1>
+	
+	{{>three}}
 </template>
 
 <template name = "search">
 {{> EasySearch.Input index=FossilsIndex }}
 
+	   <dl>
+        {{#EasySearch.Each index=FossilsIndex }}
+         
+		<dt>Specimen Number</dt>
+		<dd>{{specNum}}</dd>
+		<dt>Locality</dt>
+		<dd>{{locality}}</dd>
+		<dt>Date</dt>
+		<dd>{{date}}</dd>
+		<dt>components</dt>
+		<dd>{{components}}</dd>
+		<dt>collector</dt>
+		<dd>{{collector}}</dd>
+	
+        {{/EasySearch.Each}}
+   </dl>
 </template>
 
 <template name = "loader">
@@ -36,16 +62,13 @@
 			<li><a href="{{pathFor route='fossilForm'}}">Input Fossil</a></li>
 			<li><a href="{{pathFor route='fossilList'}}">Fossil List</a> </li>
 			<li><a href="{{pathFor route='todoList'}}">shopping list</a> </li>
+			<li><a href="{{pathFor route='search'}}">search</a> </li>
 		</ul>
 	</div>
 </template>
-<template name = "searchBox">
-	{{> EasySearch.Input index=FossilsIndex }}
 
-	<ul>
-        {{#EasySearch.Each index=FossilsIndex }}
-            <li>Name of the player: {{collector}}</li>
-        {{/EasySearch.Each}}
-    </ul>
+<template name="three">
+	<div id ="canvas"></div>
 </template>
+
 
