@@ -1,6 +1,6 @@
 #dinobook
 
-visit:  dinobook.meteor.com
+http://dinobook.meteor.com
 
 Field Book - multiple solutions, meteor framework
 
