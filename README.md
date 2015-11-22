@@ -1,13 +1,14 @@
 #dinobook
 Field Book - multiple solutions, meteor framework
 
+Our solution to https://github.com/amnh/HacktheDinos/wiki/Digital-Field-Book 
+
 dinobook.meteor.com
 
 /* TO START */
 Command Line:
 
-cd Dinos
+1. cd Dinos
 
-meteor
-
+2. meteor
 
