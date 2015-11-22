@@ -73,6 +73,6 @@ function addInfoBox(marker, fossil) {
     })
 
     marker.addListener('click', function() {
-      infowindow.open(marker.get('map'), marker),
+      infowindow.open(marker.get('map'), marker)
     })
   } 
