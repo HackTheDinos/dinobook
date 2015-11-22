@@ -16,12 +16,12 @@ Schema.Fossil = new SimpleSchema({
 	},
 	components: {
 		type: Array,
-		label: "Components"
+		label: "Components",
 		optional: true
 	},
-	"components.$": {
+	"components.$" : {
 		type: String
-	}
+	},
 	date: {
 		type: Date,
 		label: "Date Collected"
@@ -38,3 +38,4 @@ Schema.Fossil = new SimpleSchema({
 });
 
 Fossils.attachSchema(Schema.Fossil);
+// Meteor.users.attachSchema(Schema.User);
