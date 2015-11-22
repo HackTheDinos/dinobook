@@ -78,9 +78,9 @@ Router.route('/todoList',{
 	template:'todoList'
 })
 
-Router.route('/searchBox',{
-    name:'searchBox',
-    path:'/searchBox',
+Router.route('/search',{
+    name:'search',
+    path:'/search',
     waitOn:function(){
         return [Meteor.subscribe('tasks'),Meteor.subscribe('fossils'),Meteor.subscribe('images')];
 
@@ -88,6 +88,6 @@ Router.route('/searchBox',{
     data: function(){
         return Fossils.find({});
     },
-    template:'searchBox'
+    template:'search'
 
 })

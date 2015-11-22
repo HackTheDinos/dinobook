@@ -9,7 +9,7 @@ Template.search.helpers({
 Template.search.events({
   'keypress input':function(event){
   	console.log('het');
-    Router.go('/searchBox')
+    Router.go('/search')
     if (event.keyCode == 13) {
         event.preventDefault();
     }

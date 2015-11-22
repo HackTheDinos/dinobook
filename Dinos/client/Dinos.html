@@ -5,13 +5,13 @@
 <template name = "applicationLayout">
 	<div class ="row">
 
-	<div class ="col-md-3" id ="dash">
-		{{>loginButtons}}
-		{{>menu}}
-		{{>search}}
-	</div>
+		<div class ="col-md-3" id ="dash">
+			{{>loginButtons}}
+			{{>menu}}
+			
+		</div>
 
-	<div class = "col-md-9" id = "main">{{>yield}}</div>
+		<div class = "col-md-9" id = "main">{{>yield}}</div>
 	</div>
 </template>
 
@@ -20,8 +20,24 @@
 </template>
 
 <template name = "search">
-{{> EasySearch.Input index=FossilsIndex }}
+	{{> EasySearch.Input index=FossilsIndex }}
 
+	<ul>
+		{{#EasySearch.Each index=FossilsIndex }}
+		<dl>
+			<dt>Specimen Number</dt>
+			<dd>{{specNum}}</dd>
+			<dt>Locality</dt>
+			<dd>{{locality}}</dd>
+			<dt>Date</dt>
+			<dd>{{date}}</dd>
+			<dt>components</dt>
+			<dd>{{components}}</dd>
+			<dt>collector</dt>
+			<dd>{{collector}}</dd>
+		</dl>
+		{{/EasySearch.Each}}
+	</ul>
 </template>
 
 <template name = "loader">
@@ -36,16 +52,9 @@
 			<li><a href="{{pathFor route='fossilForm'}}">Input Fossil</a></li>
 			<li><a href="{{pathFor route='fossilList'}}">Fossil List</a> </li>
 			<li><a href="{{pathFor route='todoList'}}">shopping list</a> </li>
+			<li><a href="{{pathFor route='search'}}">Search</a> </li>
 		</ul>
 	</div>
 </template>
-<template name = "searchBox">
-	{{> EasySearch.Input index=FossilsIndex }}
 
-	<ul>
-        {{#EasySearch.Each index=FossilsIndex }}
-            <li>Name of the player: {{collector}}</li>
-        {{/EasySearch.Each}}
-    </ul>
-</template>
 
