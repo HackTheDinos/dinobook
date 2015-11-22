@@ -45,8 +45,11 @@ Fossils.attachSchema(new SimpleSchema({
 		label: "Date Collected"
 	},
 	collector: {
-		type: String,
+		type: Array,
 		label: "Collector"
+	},
+	"collector.$": {
+		type: String
 	},
 	fileId: {
 		type: String,

@@ -21,11 +21,11 @@ Template.map.helpers({
       // Map initialization options
       return {
     //    center: new google.maps.LatLng(-37.8136, 144.9631),        
-        center: new google.maps.LatLng(centerCoordinatex, centerCoordinatey),
-        zoom: 8
-      };
-    }
-  }
+    center: new google.maps.LatLng(centerCoordinatex, centerCoordinatey),
+    zoom: 8
+  };
+}
+}
 });
 
 Template.map.onCreated(function() {
@@ -44,9 +44,34 @@ Template.map.onCreated(function() {
       var fossilMarker = new google.maps.Marker({
         position: fossilLat,
         title: themFossilz[i].specNum.toString(),
-        map: map.instance
+        map: map.instance,
+        animation: google.maps.Animation.DROP
       })
+      addInfoBox( fossilMarker, themFossilz[i] );
     }
 
   });
 });
+
+function getComponents(fossilComponents) {
+  componentString = "";
+  for (i =0; i<fossilComponents.length; i++){
+    componentString += fossilComponents[i] + "<br />"
+  }
+  return componentString
+}
+
+function addInfoBox(marker, fossil) {
+  var infowindow = new google.maps.InfoWindow({
+    content: (
+      "Specimen Number: " + fossil.specNum + "<br />" +
+      "Collector: " + fossil.collector + "<br />" +
+      "Date Collected: " + fossil.date + "<br /."  +
+      "Components: " + getComponents(fossil.components)
+      )
+    })
+
+    marker.addListener('click', function() {
+      infowindow.open(marker.get('map'), marker),
+    })
+  } 
