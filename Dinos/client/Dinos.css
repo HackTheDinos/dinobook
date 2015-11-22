@@ -6,3 +6,7 @@
 form{
 	max-width:50vh;
 }
+img{
+	max-width:300px;
+	max-height:300px;
+}

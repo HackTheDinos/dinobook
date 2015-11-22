@@ -1,9 +1,9 @@
 <template name = "fossilList">
 	<h1>FOSSIL LIST GOES HERE</h1>
 
-	{{#if postList.count}}
+	
 
-	{{#each postList}}
+	{{#each posts}}
 	<dl>
 		<dt>Specimen Number</dt>
 		<dd>{{specNum}}</dd>
@@ -15,9 +15,13 @@
 		<dd>{{components}}</dd>
 		<dt>collector</dt>
 		<dd>{{collector}}</dd>
+		{{>imageView}}
+		
 	</dl>
 	{{/each}}
-	{{/if}}
+
+
+			
 </template>
 
 <template name = "todoList">

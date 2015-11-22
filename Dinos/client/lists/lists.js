@@ -1,8 +1,4 @@
 Template.fossilList.helpers({
-  postList: function () {
-    //selector = {collector: Meteor.userId()};
-    return Fossils.find({});
-  },
   posts: function(){
    
     return Fossils.find({});  
