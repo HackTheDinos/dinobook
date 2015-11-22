@@ -21,11 +21,22 @@
 <template name = "search">
 {{> EasySearch.Input index=FossilsIndex }}
 
-	<ul>
+	   <dl>
         {{#EasySearch.Each index=FossilsIndex }}
-            <li>Name of the collector: {{collector}}</li>
+         
+		<dt>Specimen Number</dt>
+		<dd>{{specNum}}</dd>
+		<dt>Locality</dt>
+		<dd>{{locality}}</dd>
+		<dt>Date</dt>
+		<dd>{{date}}</dd>
+		<dt>components</dt>
+		<dd>{{components}}</dd>
+		<dt>collector</dt>
+		<dd>{{collector}}</dd>
+	
         {{/EasySearch.Each}}
-    </ul>
+   </dl>
 </template>
 
 <template name = "loader">
