@@ -37,7 +37,6 @@ var mouseX = 0, mouseY = 0;
 
  	var loader2 = new THREE.ObjectLoader();
  	loader2.load("sarahs-dino.json",function ( obj ) {
- 		obj.rotation.y +=70;
  		document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 
  		console.log(obj);
