@@ -8,8 +8,8 @@ Images = new FS.Collection("images",{
 
 FossilsIndex = new EasySearch.Index({
     collection: Fossils,
-    fields: ['collector'],
-    engine: new EasySearch.MongoDB()
+    fields: ['collector','locality','coordinates','components','specNum'],
+    engine: new EasySearch.Minimongo()
   });
 
 
@@ -59,9 +59,6 @@ Fossils.attachSchema(new SimpleSchema({
 		optional: true
 	}
 }))
-
-//Fossils.attachSchema(Schema.Fossil);
-// Meteor.users.attachSchema(Schema.User);
 
 
 
