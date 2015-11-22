@@ -23,11 +23,10 @@
 <template name = "todoList">
 
 	{{>todoForm}}
-	<button id="delete">Delete</button>
 	{{#each taskList}}
 	<div class="row">
-		<div class="col-md-6"><p>{{task}}</p></div>
-		<div class="col-md-6"><input type ="checkbox" id ="delete"></div>
+		<li><div class="col-md-6"><p>{{task}}</p></div>
+		<div class="col-md-6">[<a href="#" class="delete-todo">Delete</a>]</div></li>
 	</div>
 	{{/each}}
 </template>
