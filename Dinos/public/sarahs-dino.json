@@ -49,7 +49,7 @@
         },
         "materials": [{
             "specularCoef": 50,
-            "colorDiffuse": [0.690196,0.690196,0.690196],
+            "colorDiffuse": [1,1,1],
             "colorSpecular": [0.5,0.5,0.5],
             "colorAmbient": [0.690196,0.690196,0.690196],
             "visible": true,
@@ -76,7 +76,7 @@
     }],
     "materials": [{
         "uuid": "5295BB3B-7433-3BF0-838D-6497D93B98D1",
-        "color": 11579568,
+        "color": 14540253,
         "shininess": 50,
         "type": "MeshPhongMaterial",
         "blending": "NormalBlending",
