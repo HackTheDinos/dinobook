@@ -26,7 +26,7 @@
  	camera.position.z = 800;
 
  	var renderer = new THREE.WebGLRenderer();
- 	renderer.setSize( window.innerWidth, window.innerHeight);
+ 	renderer.setSize( window.innerWidth/2, window.innerHeight/2);
  	renderer.setClearColor(0xffffff, 1);
 
  	var template = document.getElementById("canvas");
@@ -48,7 +48,7 @@
 
  	function render() {
  		requestAnimationFrame( render );
- 	
+ 		
 		camera.position.x += ( mouseX - camera.position.x ) * .05+10;
 		camera.position.y += ( - mouseY - camera.position.y ) * .05+10;
 		camera.position.z = 5;
