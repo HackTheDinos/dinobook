@@ -14,6 +14,7 @@ Field Book - multiple solutions, meteor framework
     Map which shows location of inputted files, as well as selected input fields,
     List of all information currently in database
     Search capabilities
+    "Shopping List" or "TODO List" for paleontologists in the field
     
 
 TODO:
