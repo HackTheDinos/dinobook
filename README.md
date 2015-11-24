@@ -4,17 +4,17 @@ Hosted Website:
 http://dinobook.meteor.com
 
 To view locally (must have meteor installed):
-  1) Git Clone
+  1) git clone repository
   2) cd Dinos
   3) meteor
 
 Field Book - multiple solutions, meteor framework
   Contains: 
-    Form for inputting fossil information (with validation)
-    Map which shows location of inputted files, as well as selected input fields,
-    List of all information currently in database
-    Search capabilities
-    "Shopping List" or "TODO List" for paleontologists in the field
+    - Form for inputting fossil information (with validation)
+    - Map which shows location of inputted files, as well as selected input fields
+    - List of all information currently in database
+    - Search capabilities
+    - "Shopping List" or "TODO List" for paleontologists in the field
     
 
 TODO:
