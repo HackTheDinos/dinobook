@@ -4,9 +4,9 @@ Hosted Website:
 http://dinobook.meteor.com
 
 To view locally (must have meteor installed):
-  Git Clone
-  cd Dinos
-  meteor
+  1) Git Clone
+  2) cd Dinos
+  3) meteor
 
 Field Book - multiple solutions, meteor framework
   Contains: 
