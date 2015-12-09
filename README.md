@@ -3,10 +3,10 @@
 Hosted Website:
 http://dinobook.meteor.com
 
-To view locally (must have meteor installed):
-  1) git clone repository
-  2) cd Dinos
-  3) meteor
+To view locally (must have meteor installed): <br />
+  1) git clone repository <br />
+  2) cd Dinos <br />
+  3) meteor <br />
 
 Field Book - multiple solutions, meteor framework <br />
   Contains: <br />
